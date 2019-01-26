@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
 
     public float velocidadRotacion = 100;
-    public float velocidadTraslacion = 100;
+    public float velocidadTraslacion = 10;
 	// Use this for initialization
 	void Start () {
 		
