@@ -36,7 +36,7 @@ public class DesactivadorBloques : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 5, blockLayers)) //Choca solo con el layer que le tiras en el editor como BlockLayer.
         {
-            print(hitInfo.collider);
+            //print(hitInfo.collider);
 
             if ( Input.GetKey(KeyCode.Mouse1))
             {
