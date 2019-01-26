@@ -8,7 +8,7 @@ public class Nucleo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag==("Enemigo"))
+        if (other.gameObject.tag == ("Enemigo"))
         {
             hitTower -= 10;
         }
