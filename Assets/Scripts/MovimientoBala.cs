@@ -6,15 +6,14 @@ public class MovimientoBala : MonoBehaviour
 {
     public int velocidad = 150;
     public int danio = 50;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         gameObject.transform.Translate(0f, 0f, velocidad * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+      Destroy(gameObject);
     }
 }

@@ -21,7 +21,6 @@ public class Enemigo : MonoBehaviour
         {
           var bala = other.gameObject.GetComponent<MovimientoBala>();
           VidaEnemigo -= bala.danio;
-          Destroy(other.gameObject);
         }
     }
 }
