@@ -5,27 +5,15 @@ using UnityEngine.AI;
 
 public class MovimientoEnemigo : MonoBehaviour
 {
-    public float velocidad = 4f;
+    public float velocidad = 10f;
     public bool siguiendo = true;
     public float rangoDeteccion = 10f;
     public float rangoAtaque = 1.5f;
-    public AudioClip sirena;
     Nucleo nucleo;
     NavMeshAgent agent;
     public float cooldown = 1.5f;
     public float cooldownTimer;
 
-
-    public Estados estadoActual;
-
-
-
-    public enum Estados
-    {
-        Estado1,
-        Estado2,
-
-    }
 
 
     void Start()
