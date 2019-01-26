@@ -7,13 +7,14 @@ public class Player : MonoBehaviour {
 
     public float velocidadRotacion = 100;
     public float velocidadTraslacion = 10;
+    public GameObject Bala;
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         if(Input.GetKey(KeyCode.D)){
             transform.Rotate(0, velocidadRotacion * Time.deltaTime , 0);
         }
@@ -26,5 +27,15 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.S)){
             transform.Translate(0, 0,-velocidadTraslacion * Time.deltaTime);
         }
+
+        if (Input.GetMouseButton(0))
+        {
+            Disparar();
+            
+        }
+    }
+    void Disparar()
+    {
+        Instantiate(Bala, transform.position, transform.rotation);
     }
 }
