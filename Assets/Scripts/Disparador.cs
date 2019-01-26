@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Disparador : MonoBehaviou {
+public class Disparador : MonoBehaviour {
   public GameObject Bala;
   public float cooldown = 1.5f;
   public float cooldownTimer = 0f;
