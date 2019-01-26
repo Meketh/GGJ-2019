@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Nucleo : MonoBehaviour
 {
-    public int hitTower=100;
+    public int vidaNucleo = 100;
+    public int golpebicho = 10;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == ("Enemigo"))
+        if (other.gameObject.tag == "Enemigo")
         {
-            hitTower -= 10;
+            vidaNucleo -= golpebicho;
         }
     }
 }
