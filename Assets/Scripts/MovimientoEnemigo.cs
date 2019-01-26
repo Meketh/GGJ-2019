@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MovimientoEnemigo : MonoBehaviour
 {
-    public float velocidad = 10f;
+    public float velocidad = 20f;
     public bool siguiendo = true;
     public float rangoDeteccion = 10f;
     public float rangoAtaque = 1.5f;
@@ -21,21 +21,14 @@ public class MovimientoEnemigo : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         nucleo = FindObjectOfType<Nucleo>();
         agent.speed = velocidad;
-        //SonidoSierna();
+        //velocidad = agent.speed;
     }
 
     void FixedUpdate()
     {
 
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StopAllCoroutines();
-        }
-
         float distanciaAlnucleo = Vector3.Distance(transform.position, nucleo.transform.position);
-
-
+        
 
         if (cooldownTimer == 0)
         {

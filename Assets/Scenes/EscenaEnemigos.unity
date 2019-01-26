@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb30e793e611c946868e7049921f6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 4
+  velocidad: 30
   siguiendo: 1
   rangoDeteccion: 10
   rangoAtaque: 1.5
