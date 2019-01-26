@@ -12,25 +12,52 @@ public class Player : MonoBehaviour {
   void Update() {
     anim.SetBool("Walk", false);
     anim.SetBool("Idle", true);
-    if (Input.GetKey(KeyCode.D)) {
-      transform.Rotate(0, velocidadRotacion * Time.deltaTime, 0);
-      anim.SetBool("Walk", true);
-      anim.SetBool("Idle", false);
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(0, velocidadRotacion * Time.deltaTime, 0);
+            anim.SetBool("Walk", true);
+            anim.SetBool("Idle", false);
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetBool("Walk", false);
+            anim.SetBool("Idle", false);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(0, -velocidadRotacion * Time.deltaTime, 0);
+            anim.SetBool("Walk", true);
+            anim.SetBool("Idle", false);
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetBool("Walk", false);
+            anim.SetBool("Idle", false);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(0, 0, velocidadTraslacion * Time.deltaTime);
+            anim.SetBool("Walk", true);
+            anim.SetBool("Idle", false);
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            anim.SetBool("Walk", false);
+            anim.SetBool("Idle", false);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(0, 0, -velocidadTraslacion * Time.deltaTime);
+            anim.SetBool("Walk", true);
+            anim.SetBool("Idle", false);
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.SetBool("Walk", false);
+            anim.SetBool("Idle", false);
+        }
     }
-    if (Input.GetKey(KeyCode.A)) {
-      transform.Rotate(0, -velocidadRotacion * Time.deltaTime, 0);
-      anim.SetBool("Walk", true);
-      anim.SetBool("Idle", false);
-    }
-    if (Input.GetKey(KeyCode.W)) {
-      transform.Translate(0, 0, velocidadTraslacion * Time.deltaTime);
-      anim.SetBool("Walk", true);
-      anim.SetBool("Idle", false);
-    }
-    if (Input.GetKey(KeyCode.S)) {
-      transform.Translate(0, 0, -velocidadTraslacion * Time.deltaTime);
-      anim.SetBool("Walk", true);
-      anim.SetBool("Idle", false);
-    }
-  }
 }
