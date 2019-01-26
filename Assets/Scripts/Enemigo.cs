@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    float VidaEnemigo = 100;
+    public float VidaEnemigo = 100f;
+
+    private void Update()
+    {
+        if(VidaEnemigo <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bala")
+        if(other.gameObject.tag == "Bala")
         {
-
-            VidaEnemigo -= 10;
+            print(other);
+            VidaEnemigo -= 100f;
         }
     }
 }
