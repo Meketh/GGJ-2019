@@ -6543,6 +6543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b939d0895ed19e54b8f6ab723d9cf623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitTower: 100
 --- !u!4 &233904636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4281038122870806, guid: 868de330c3931b44ab019e9b220b1e0e,
@@ -13738,6 +13739,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 620489692}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &516677664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516677665}
+  - component: {fileID: 516677666}
+  m_Layer: 0
+  m_Name: Disparador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &516677665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516677664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.491, z: 1.195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 808044877}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &516677666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516677664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e6ddb6888194e4291c563fde511a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bala: {fileID: 4776953687689757332, guid: 5cbd2ef74741bd04f85ef058ee4a7361, type: 3}
+  cooldown: 1.5
+  cooldownTimer: 0
 --- !u!1001 &517056108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22294,7 +22341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadRotacion: 100
   velocidadTraslacion: 100
-  Bala: {fileID: 4776953687689757332, guid: 5cbd2ef74741bd04f85ef058ee4a7361, type: 3}
 --- !u!136 &808044874
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22366,6 +22412,7 @@ Transform:
   m_LocalScale: {x: 5, y: 4.877447, z: 5}
   m_Children:
   - {fileID: 1129815187}
+  - {fileID: 516677665}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

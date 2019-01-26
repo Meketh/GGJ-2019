@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovimientoBala : MonoBehaviour
 {
-    public int velocidad = 15;
+    public int velocidad = 150;
     // Start is called before the first frame update
     void Start()
     {
