@@ -14,7 +14,7 @@ public class MovimientoBala : MonoBehaviour {
     }
   }
   private void OnTriggerEnter(Collider other) {
-    if(other.gameObject.tag == "PLAYER") {
+    if(other.gameObject.tag != "Player") {
       Destroy(gameObject);
     }
   }
