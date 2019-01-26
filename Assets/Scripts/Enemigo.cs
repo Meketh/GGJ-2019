@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    public float VidaEnemigo = 100f;
+    public int VidaEnemigo = 100;
+    public int ataqueEnemigo = 100;
 
     private void Update()
     {
@@ -18,8 +19,9 @@ public class Enemigo : MonoBehaviour
     {
         if(other.gameObject.tag == "Bala")
         {
-            print(other);
-            VidaEnemigo -= 100f;
+          var bala = other.gameObject.GetComponent<MovimientoBala>();
+          VidaEnemigo -= bala.danio;
+          Destroy(other.gameObject);
         }
     }
 }
