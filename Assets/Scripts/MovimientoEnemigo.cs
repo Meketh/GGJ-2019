@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MovimientoEnemigo : MonoBehaviour
 {
-    public float velocidad = 20f;
+    public float velocidad = 10f;
     public bool siguiendo = true;
     public float rangoDeteccion = 10f;
     public float rangoAtaque = 1.5f;
@@ -36,7 +36,7 @@ public class MovimientoEnemigo : MonoBehaviour
         {
             print(distanciaAlnucleo);
 
-            if (distanciaAlnucleo > 20)//Si el enemigo esta lejos del fuego entonces lo sigo
+            if (distanciaAlnucleo > agent.stoppingDistance)//Si el enemigo esta lejos del fuego entonces lo sigo
             {
                 agent.destination = nucleo.transform.position;//NavMeshAgent.Warp(nucleo.transform.position);//
                 transform.LookAt(nucleo.transform.position);
