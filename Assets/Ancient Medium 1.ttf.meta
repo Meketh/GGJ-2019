@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6c2e29b0b0a25e84cad09f2feed510ff
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Ancient
+  fontNames:
+  - Ancient
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f39cf5345ed3b0640a21894cbf2e73d0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
