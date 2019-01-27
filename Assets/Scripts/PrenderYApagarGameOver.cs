@@ -9,15 +9,18 @@ public class PrenderYApagarGameOver : MonoBehaviour
     public Text textoLore;
     public Text textoRetry;
     public bool invokeLore = false;
+    public LevelManager levelManager;
 
     private void Start()
     {
-        textoGameOver.enabled = false;
-        textoLore.enabled = false;
-        textoRetry.enabled = false;
+        if(levelManager.podesPerder)
+        {
+            textoGameOver.enabled = false;
+            textoLore.enabled = false;
+            textoRetry.enabled = false;
 
-        FuncionLore();
- 
+            FuncionLore();
+        }
 
     }
 

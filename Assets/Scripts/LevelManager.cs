@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class LevelManager : MonoBehaviour {
   float spawnTime = 6f;
@@ -13,20 +14,32 @@ public class LevelManager : MonoBehaviour {
     public int cantidadEnemigosParaGanar = 100;
 
     public Canvas canvasGameOver;
-    PrenderYApagarGameOver scriptGameOver;
+    public Canvas canvasWin;
 
+    public CinemachineVirtualCamera victoryCam;
+
+    public Animator anim;
+    bool personajeSeRio = true;
+
+    PrenderYApagarGameOver scriptGameOver;
+    public Player player;
 
     Nucleo nucleoScript;
 
+    public bool podesGanar = true;
+    public bool podesPerder = true;
+
     void Start()
     {
+        player.enabled = true;
         Invoke("InvocarMinion", spawnTime);
         InvokeRepeating("speedSpawning", 0f, 10f);
         nucleoScript = FindObjectOfType<Nucleo>().GetComponent<Nucleo>();
         scriptGameOver = FindObjectOfType<PrenderYApagarGameOver>().GetComponent<PrenderYApagarGameOver>();
-       
+        //player = FindObjectOfType<Player>().GetComponent<Player>();
         scriptGameOver.enabled = false;
         canvasGameOver.enabled = false;
+        canvasWin.enabled = false;
     }
     private void Update()
     {
@@ -35,12 +48,25 @@ public class LevelManager : MonoBehaviour {
             contadorEnemigosParaRisaPlayer = 0;
             SoundManager.Instance.playRisaPlayer();
         }
-        if (contadorEnemigos >= cantidadEnemigosParaGanar)
+        if (contadorEnemigos >= cantidadEnemigosParaGanar && podesGanar) //GANASTE
         {
-            SceneManager.LoadScene("Victoria");            
+            podesGanar = true;
+            podesPerder = false;
+            canvasWin.enabled = true;
+            victoryCam.enabled = true;
+
+
+            anim.SetBool("Victory", true);
+            player.enabled = false;
+            if (personajeSeRio) { 
+            SoundManager.Instance.playRisaPlayer();
+                personajeSeRio = false;
+            }
         }
-        if (nucleoScript.vidaNucleo <= 0)
+        if (nucleoScript.vidaNucleo <= 0 && podesPerder)//PERDISTE
         {
+            podesGanar = false;
+            podesPerder = true;
             canvasGameOver.enabled = true;
             scriptGameOver.enabled = true;
         }
