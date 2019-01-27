@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Nucleo : MonoBehaviour
 {
-    public int vidaNucleo = 100;
+    public float vidaNucleo = 100;
     Enemigo enemigoScript;
 
     private void Start()
@@ -18,7 +18,7 @@ public class Nucleo : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemigo")
         {
-            vidaNucleo -= enemigoScript.ataqueEnemigo;
+            vidaNucleo -= 0.05f;
         }
     }
 }
