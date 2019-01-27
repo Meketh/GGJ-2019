@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 10
@@ -121,7 +121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 701532150}
-  - component: {fileID: 701532151}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -144,18 +143,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &701532151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701532149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a594ad9d3899a5478eeafd15edbe3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1099336944
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +280,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1099336944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a94da9cf2ea4f94e9dd13526607289d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a594ad9d3899a5478eeafd15edbe3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipBackground: {fileID: 8300000, guid: 29e272d2a6a70e348a28b3487a9a42be, type: 3}
