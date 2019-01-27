@@ -8,7 +8,7 @@ public class Enemigo : MonoBehaviour
     
     AudioSource sourceAudio;
     SoundManager soundScirpt;
-    
+    int grito;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class Enemigo : MonoBehaviour
     {
         if(VidaEnemigo <= 0)
         {
-            sourceAudio.PlayOneShot(soundScirpt.clipGrito, 0.5f);
+            ElegirSonidoGrito();
             Destroy(gameObject);
         }
     }
@@ -34,5 +34,10 @@ public class Enemigo : MonoBehaviour
           var bala = other.gameObject.GetComponent<MovimientoBala>();
           VidaEnemigo -= bala.danio;
         }
+    }
+    public void ElegirSonidoGrito()
+    {
+        int grito = Random.Range(0, soundScirpt.clipGrito.Length);
+        SoundManager.Instance.playAudio(soundScirpt.clipGrito[grito], 0.1f);
     }
 }
