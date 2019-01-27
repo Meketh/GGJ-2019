@@ -3,61 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-  public float velocidadRotacion = 100;
-  public float velocidadTraslacion = 10;
-  public Animator anim;
+  public GameObject Bala;
+  public float speed = 30f;
+  float cooldown = 1.5f;
+  float cooldownTimer = 0f;
+  Vector3 cameraOffset = 30 * new Vector3(0, 2, -1);
+
+  Animator anim;
   void Start() {
     anim = GetComponent<Animator>();
   }
   void Update() {
-    anim.SetBool("Walk", false);
-    anim.SetBool("Idle", true);
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0, velocidadRotacion * Time.deltaTime, 0);
-            anim.SetBool("Walk", true);
-            anim.SetBool("Idle", false);
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Idle", false);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0, -velocidadRotacion * Time.deltaTime, 0);
-            anim.SetBool("Walk", true);
-            anim.SetBool("Idle", false);
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Idle", false);
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(0, 0, velocidadTraslacion * Time.deltaTime);
-            anim.SetBool("Walk", true);
-            anim.SetBool("Idle", false);
-        }
-        else if (Input.GetKeyUp(KeyCode.W))
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Idle", false);
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(0, 0, -velocidadTraslacion * Time.deltaTime);
-            anim.SetBool("Walk", true);
-            anim.SetBool("Idle", false);
-        }
-        else if (Input.GetKeyUp(KeyCode.S))
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Idle", false);
-        }
+    var translation = new Vector3();
+    var displacement = speed * Time.deltaTime;
+    if (Input.GetKey(KeyCode.W)) {
+      translation += displacement * Vector3.forward;
     }
+    if (Input.GetKey(KeyCode.A)) {
+      translation += displacement * Vector3.left;
+    }
+    if (Input.GetKey(KeyCode.S)) {
+      translation += displacement * Vector3.back;
+    }
+    if (Input.GetKey(KeyCode.D)) {
+      translation += displacement * Vector3.right;
+    }
+    transform.position += translation;
+    // anim.SetBool("Walk", walking);
+    // anim.SetBool("Idle", !walking);
+    if (cooldownTimer > 0) {
+      cooldownTimer -= Time.deltaTime;
+      if (Input.GetMouseButtonUp(0)) {
+        anim.SetBool("Attack", false);
+      }
+    } else if (cooldownTimer <= 0f && Input.GetMouseButton(0)) {
+      cooldownTimer = 0.5f;
+      anim.SetBool("Attack", true);
+      Instantiate(Bala, transform);
+    }
+    float distance;
+    var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    var plane = new Plane(Vector3.up, transform.position);
+    if (plane.Raycast(ray, out distance)) {
+      transform.LookAt(ray.GetPoint(distance));
+    }
+    Camera.main.transform.position = transform.position + cameraOffset;
+    Camera.main.transform.LookAt(transform.position);
+  }
 }
