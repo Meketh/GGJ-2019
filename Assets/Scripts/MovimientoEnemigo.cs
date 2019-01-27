@@ -9,7 +9,7 @@ public class MovimientoEnemigo : MonoBehaviour
     public bool siguiendo = true;
     public float rangoDeteccion = 10f;
     public float rangoAtaque = 1.5f;
-    Nucleo nucleo;
+    public Nucleo nucleo;
     NavMeshAgent agent;
     public float cooldown = 1.5f;
     public float cooldownTimer;
@@ -30,51 +30,23 @@ public class MovimientoEnemigo : MonoBehaviour
         float distanciaAlnucleo = Vector3.Distance(transform.position, nucleo.transform.position);
         
 
-        if (cooldownTimer == 0)
+
+
+        if (siguiendo == true)
         {
+            print(distanciaAlnucleo);
 
-
-            if (siguiendo == true)//Encontro al nucleo
+            if (distanciaAlnucleo > 20)//Si el enemigo esta lejos del fuego entonces lo sigo
             {
-                if (distanciaAlnucleo > rangoAtaque)//Si el enemigo esta lejos del pj entonces solo lo sigo
-                {
-
-
-                    agent.destination = nucleo.transform.position;//NavMeshAgent.Warp(nucleo.transform.position);//
-                    transform.LookAt(nucleo.transform.position);
-                }
+                agent.destination = nucleo.transform.position;//NavMeshAgent.Warp(nucleo.transform.position);//
+                transform.LookAt(nucleo.transform.position);
+                agent.isStopped = false;
+            }
+            else {
+                agent.isStopped = true;
+                siguiendo = false;
             }
         }
-        else
-        {
-            siguiendo = false;
-        }
     }
-
-    public void CooldownPararse()
-    {
-        if (cooldownTimer > 0)
-        {
-            cooldownTimer -= Time.deltaTime;
-
-        }
-        if (cooldownTimer < 0)
-        {
-            cooldownTimer = 0;
-        }
-    }
-
-    void OnDrawGizmos()
-    {
-
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawWireSphere(transform.position, rangoDeteccion);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, rangoAtaque);
-    }
-
-
-
     
 }
