@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum BulletType { Normal, Scatter, Rapid, Fragment }
-
 public class Player : MonoBehaviour {
   public GameObject Bala;
   AudioSource sourceAudio;
@@ -24,18 +22,18 @@ public class Player : MonoBehaviour {
   void Update() {
     var translation = new Vector3();
     var displacement = speed * Time.deltaTime;
-    if (Input.GetKey(KeyCode.N)) {
-      bulletType = BulletType.Normal;
-    }
-    if (Input.GetKey(KeyCode.R)) {
-      bulletType = BulletType.Rapid;
-    }
-    if (Input.GetKey(KeyCode.F)) {
-      bulletType = BulletType.Fragment;
-    }
-    if (Input.GetKey(KeyCode.V)) {
-      bulletType = BulletType.Scatter;
-    }
+    // if (Input.GetKey(KeyCode.N)) {
+    //   bulletType = BulletType.Normal;
+    // }
+    // if (Input.GetKey(KeyCode.R)) {
+    //   bulletType = BulletType.Rapid;
+    // }
+    // if (Input.GetKey(KeyCode.F)) {
+    //   bulletType = BulletType.Fragment;
+    // }
+    // if (Input.GetKey(KeyCode.V)) {
+    //   bulletType = BulletType.Scatter;
+    // }
     if (Input.GetKey(KeyCode.W)) {
       translation += displacement * Vector3.forward;
     }
@@ -94,7 +92,7 @@ public class Player : MonoBehaviour {
     return bullet;
   }
   void OnTriggerEnter(Collider other) {
-    if (other.gameObject.tag != "PowerUp") {
+    if (other.gameObject.tag == "PowerUp") {
       var powerUp = other.gameObject.GetComponent<PowerUp>();
       bulletType = powerUp.bulletType;
       Invoke("setNormalBullet", powerUp.ttl);
