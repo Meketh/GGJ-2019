@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
   AudioSource sourceAudio;
   SoundManager soundScrpt;
   float speed = 25f;
-  float cooldown = 0f;
+  public float cooldown = 0f;
   Vector3 cameraOffset = 30 * new Vector3(0f, 3f, -1.5f);
   float cameraSpeed = 20f;
   BulletType bulletType = BulletType.Normal;
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
     } else {
       if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) {
         var bullet = newBullet();
-        cooldown = 1f;
+        cooldown = 0.5f;
         switch (bulletType) {
           case BulletType.Rapid: cooldown = .5f; break;
           case BulletType.Fragment:
