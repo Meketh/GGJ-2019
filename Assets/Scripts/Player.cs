@@ -93,4 +93,14 @@ public class Player : MonoBehaviour {
     bullet.transform.Rotate(0, arc, 0);
     return bullet;
   }
+  void OnTriggerEnter(Collider other) {
+    if (other.gameObject.tag != "PowerUp") {
+      var powerUp = other.gameObject.GetComponent<PowerUp>();
+      bulletType = powerUp.bulletType;
+      Invoke("setNormalBullet", powerUp.ttl);
+    }
+  }
+  void setNormalBullet() {
+    bulletType = BulletType.Normal;
+  }
 }
