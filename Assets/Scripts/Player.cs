@@ -29,14 +29,14 @@ public class Player : MonoBehaviour {
       translation += displacement * Vector3.right;
     }
     transform.position += translation;
-    // anim.SetBool("Walk", walking);
-    // anim.SetBool("Idle", !walking);
+    anim.SetBool("Walk", translation != Vector3.zero);
+    anim.SetBool("Idle", translation == Vector3.zero);
     if (cooldownTimer > 0) {
       cooldownTimer -= Time.deltaTime;
       if (Input.GetMouseButtonUp(0)) {
         anim.SetBool("Attack", false);
       }
-    } else if (cooldownTimer <= 0f && Input.GetMouseButton(0)) {
+    } else if (cooldownTimer <= 0f && Input.GetKey(KeyCode.Space)) {
       cooldownTimer = 0.5f;
       anim.SetBool("Attack", true);
       Instantiate(Bala, transform);
