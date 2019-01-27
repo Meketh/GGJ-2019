@@ -49,12 +49,12 @@ public class Dialogue : MonoBehaviour
         int dialogueLength = DialogueStrings.Length;
         int currentDialogueIndex = 0;
 
-        print("entro al start dialog");
+
         while (currentDialogueIndex < dialogueLength || !_isStringBeingRevealed)
         {
             if (!_isStringBeingRevealed)
             {
-                print(DialogueStrings[currentDialogueIndex]);
+
                 _isStringBeingRevealed = true;
                 StartCoroutine(DisplayString(DialogueStrings[currentDialogueIndex++]));
 

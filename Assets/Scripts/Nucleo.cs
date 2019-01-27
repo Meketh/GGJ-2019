@@ -5,12 +5,6 @@ using UnityEngine;
 public class Nucleo : MonoBehaviour
 {
     public float vidaNucleo = 100;
-    Enemigo enemigoScript;
-
-    private void Start()
-    {
-        enemigoScript = FindObjectOfType<Enemigo>().GetComponent<Enemigo>();
-    }
 
     private void Update()
     {
@@ -20,11 +14,4 @@ public class Nucleo : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Enemigo")
-    //    {
-    //        vidaNucleo -= 0.05f;
-    //    }
-    //}
 }

@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour {
 
     }
     public void speedSpawning() {
-    spawnTime = Mathf.Max(.5f, spawnTime - 1f);
+    spawnTime = Mathf.Max(1f, spawnTime - 1f);
   }
   public void InvocarMinion() {
     Invoke("InvocarMinion", spawnTime);
