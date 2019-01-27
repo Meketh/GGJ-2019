@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
     if (cooldownTimer > 0) {
       cooldownTimer -= Time.deltaTime;
     } else {
-      if (Input.GetKey(KeyCode.Space)) {
+      if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) {
         cooldownTimer = 0.5f;
         anim.SetBool("Attack", true);
         anim.SetBool("Walk", false);
