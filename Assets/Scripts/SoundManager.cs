@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip clipBackground;
     public AudioClip clipMisil;
     public AudioClip[] clipGrito;
-    public AudioClip clipRezo;
+    public AudioClip[] clipRezo;
     public AudioClip clipRisa;
     public AudioClip clipRisa2;
     public AudioClip clipGameOver;

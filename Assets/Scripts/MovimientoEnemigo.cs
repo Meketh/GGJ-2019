@@ -67,7 +67,7 @@ public class MovimientoEnemigo : MonoBehaviour
     public void daniarNucleo()
     {
         nucleoScript.vidaNucleo -= ataqueEnemigo;
-        SoundManager.Instance.playAudio(soundScript.clipRezo, 0.1f);
+        ElegirSonidoRezo();
     }
 
     /*public void Cooldown()
@@ -86,5 +86,10 @@ public class MovimientoEnemigo : MonoBehaviour
         }
     }*/
 
+    public void ElegirSonidoRezo()
+    {
+        int grito = Random.Range(0, soundScript.clipRezo.Length);
+        SoundManager.Instance.playAudio(soundScript.clipRezo[grito], 0.1f);
+    }
 
 }
