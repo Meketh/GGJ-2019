@@ -5,13 +5,20 @@ using UnityEngine;
 public class Nucleo : MonoBehaviour
 {
     public int vidaNucleo = 100;
-    public int golpebicho = 10;
+    Enemigo enemigoScript;
+
+    private void Start()
+    {
+        enemigoScript = FindObjectOfType<Enemigo>().GetComponent<Enemigo>();
+    }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemigo")
         {
-            vidaNucleo -= golpebicho;
+            vidaNucleo -= enemigoScript.ataqueEnemigo;
         }
     }
 }

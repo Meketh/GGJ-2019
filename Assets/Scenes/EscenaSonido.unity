@@ -389,6 +389,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipBackground: {fileID: 8300000, guid: 29e272d2a6a70e348a28b3487a9a42be, type: 3}
+  clipMisil: {fileID: 8300000, guid: dbed0f6c785b1364aa538a9203d0f5f5, type: 3}
+  clipGrito: {fileID: 8300000, guid: a4a36d46b994dbe4fb9b41ca10e1dd1a, type: 3}
+  clipRezo: {fileID: 0}
+  clipRisa: {fileID: 8300000, guid: d33c38f80e0d20d4cb67cb52e5c222a6, type: 3}
+  clipRisa2: {fileID: 8300000, guid: 966cbe050f4c1924ea49587484b9ef50, type: 3}
+  clipGameOver: {fileID: 8300000, guid: 4f3bb7a683095624aa6d324874d7574a, type: 3}
 --- !u!1 &1594571247
 GameObject:
   m_ObjectHideFlags: 0

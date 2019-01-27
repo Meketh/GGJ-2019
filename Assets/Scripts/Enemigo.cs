@@ -5,14 +5,16 @@ using UnityEngine;
 public class Enemigo : MonoBehaviour
 {
     public int VidaEnemigo = 100;
-    public int ataqueEnemigo = 100;
+    
     AudioSource sourceAudio;
-    SoundManager soundScrpt;
+    SoundManager soundScirpt;
+    
 
     private void Start()
     {
-        sourceAudio = FindObjectOfType <AudioSource>().GetComponent<AudioSource>();
-        soundScrpt = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        sourceAudio = FindObjectOfType<AudioSource>().GetComponent<AudioSource>();
+        soundScirpt = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        
     }
 
 
@@ -20,7 +22,7 @@ public class Enemigo : MonoBehaviour
     {
         if(VidaEnemigo <= 0)
         {
-            sourceAudio.PlayOneShot(soundScrpt.clipGrito, 0.5f);
+            sourceAudio.PlayOneShot(soundScirpt.clipGrito, 0.5f);
             Destroy(gameObject);
         }
     }

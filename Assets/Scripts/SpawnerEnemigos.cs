@@ -8,7 +8,8 @@ public class SpawnerEnemigos : MonoBehaviour
     public float timeInvoke;
     public float repeatInvoke;
     public int contadorEnemigos = 0;
-    
+    float cooldown = 1.5f;
+    float cooldownTimer = 0f;
 
     private void Start()
     {

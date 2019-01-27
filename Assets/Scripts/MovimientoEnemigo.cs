@@ -14,9 +14,14 @@ public class MovimientoEnemigo : MonoBehaviour
     public float cooldown = 1.5f;
     public float cooldownTimer;
 
+    public int ataqueEnemigo = 5;
+
     public Animator anim;
 
-
+    Enemigo enemigoScript;
+    AudioSource sourceAudio;
+    SoundManager soundScript;
+    Nucleo nucleoScript;
 
     void Start()
     {
@@ -25,14 +30,18 @@ public class MovimientoEnemigo : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         agent.speed = velocidad;
         //velocidad = agent.speed;
+        enemigoScript = GetComponent<Enemigo>();
+        sourceAudio = FindObjectOfType<AudioSource>().GetComponent<AudioSource>();
+        soundScript = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        nucleoScript = FindObjectOfType<Nucleo>().GetComponent<Nucleo>();
     }
 
     void FixedUpdate()
     {
 
         float distanciaAlnucleo = Vector3.Distance(transform.position, nucleo.transform.position);
-        
 
+        Cooldown();
 
 
         if (siguiendo == true)
@@ -44,12 +53,32 @@ public class MovimientoEnemigo : MonoBehaviour
                 transform.LookAt(nucleo.transform.position);
                 agent.isStopped = false;
             }
-            else {
+            else
+            {
                 agent.isStopped = true;
                 siguiendo = false;
                 anim.SetBool("Rezo", true);
+                Cooldown();
             }
         }
     }
-    
+
+
+    public void Cooldown()
+    {
+        if (cooldownTimer > 0)
+        {
+            sourceAudio.PlayOneShot(soundScript.clipRezo, .5f);
+            nucleoScript.vidaNucleo -= ataqueEnemigo;
+            cooldownTimer -= Time.deltaTime;
+
+        }
+        if (cooldownTimer < 0)
+        {
+            cooldownTimer = 10;
+            
+        }
+    }
+
+
 }
