@@ -14,12 +14,15 @@ public class MovimientoEnemigo : MonoBehaviour
     public float cooldown = 1.5f;
     public float cooldownTimer;
 
+    public Animator anim;
+
 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         nucleo = FindObjectOfType<Nucleo>();
+        anim = GetComponentInChildren<Animator>();
         agent.speed = velocidad;
         //velocidad = agent.speed;
     }
@@ -34,7 +37,6 @@ public class MovimientoEnemigo : MonoBehaviour
 
         if (siguiendo == true)
         {
-            print(distanciaAlnucleo);
 
             if (distanciaAlnucleo > agent.stoppingDistance)//Si el enemigo esta lejos del fuego entonces lo sigo
             {
@@ -45,6 +47,7 @@ public class MovimientoEnemigo : MonoBehaviour
             else {
                 agent.isStopped = true;
                 siguiendo = false;
+                anim.SetBool("Rezo", true);
             }
         }
     }
