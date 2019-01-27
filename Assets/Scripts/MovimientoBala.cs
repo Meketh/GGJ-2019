@@ -26,6 +26,7 @@ public class MovimientoBala : MonoBehaviour {
     }
   }
   void newBullet(float arc = 0) {
+        transform.position = new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z);
     var bullet = Instantiate(gameObject, transform.position, transform.rotation);
     bullet.GetComponent<MovimientoBala>().fragments = fragments - 1;
     bullet.transform.Rotate(0, arc, 0);
