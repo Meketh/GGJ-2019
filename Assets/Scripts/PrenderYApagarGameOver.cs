@@ -8,7 +8,8 @@ public class PrenderYApagarGameOver : MonoBehaviour
     public Text textoGameOver;
     public Text textoLore;
     public Text textoRetry;
-    
+    public bool invokeLore = false;
+
     private void Start()
     {
         textoGameOver.enabled = false;
@@ -16,19 +17,24 @@ public class PrenderYApagarGameOver : MonoBehaviour
         textoRetry.enabled = false;
 
         FuncionLore();
-        Invoke("FuncionGameOveryRetry", 7f);
+ 
 
     }
 
     private void Update()
     {
-        
+        if (invokeLore == true)
+        {
+            Invoke("FuncionGameOveryRetry", 7f);
+            invokeLore = false;
+        }
     }
 
 
     void FuncionLore()
     {
-        textoLore.enabled = true;      
+        textoLore.enabled = true;
+        invokeLore = true;
     }
 
     void FuncionGameOveryRetry()

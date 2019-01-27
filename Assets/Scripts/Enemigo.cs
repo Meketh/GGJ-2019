@@ -32,8 +32,11 @@ public class Enemigo : MonoBehaviour
                 paso = true;
                 print(levelManager.contadorEnemigosParaRisaPlayer);
                 levelManager.contadorEnemigosParaRisaPlayer += 1;
+                levelManager.contadorEnemigos++;
+                print(levelManager.contadorEnemigos);
             }
             Destroy(gameObject, 0.4f);
+
         }
     }
 
