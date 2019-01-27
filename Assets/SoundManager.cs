@@ -8,6 +8,13 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
     private AudioSource audioSource;
     public AudioClip clipBackground;
+    public AudioClip clipMisil;
+    public AudioClip clipGrito;
+    public AudioClip clipRezo;
+    public AudioClip clipRisa;
+    public AudioClip clipRisa2;
+    public AudioClip clipGameOver;
+    
 
     void Awake()//Inicializa scripts/variables que lo van a utilizar por ejemplo Start. Primero pasa por todos los Awake.
     {

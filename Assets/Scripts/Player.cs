@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
   public GameObject Bala;
+  AudioSource sourceAudio;
+  SoundManager soundScrpt;
   float speed = 25f;
   float cooldown = 1.5f;
   float cooldownTimer = 0f;
@@ -13,7 +15,9 @@ public class Player : MonoBehaviour {
   Animator anim;
   void Start() {
     anim = GetComponent<Animator>();
-  }
+    sourceAudio = FindObjectOfType<AudioSource>().GetComponent<AudioSource>();
+    soundScrpt = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+    }
   void Update() {
     var translation = new Vector3();
     var displacement = speed * Time.deltaTime;
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour {
         anim.SetBool("Walk", false);
         anim.SetBool("Idle", false);
         Instantiate(Bala, transform);
+        sourceAudio.PlayOneShot(soundScrpt.clipMisil, 0.5f);
       } else {
         anim.SetBool("Attack", false);
         anim.SetBool("Walk", translation != Vector3.zero);
