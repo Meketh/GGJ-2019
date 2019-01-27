@@ -46,10 +46,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2.34
+  m_Radius: 2
   m_Height: 8.476682
   m_Direction: 1
-  m_Center: {x: 0, y: 3.1021845, z: 0}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!114 &305954326920771351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
   rangoAtaque: 1.5
   nucleo: {fileID: 0}
   cooldown: 1.5
-  cooldownTimer: 0
-  ataqueEnemigo: 5
+  coolDownTimer: 2
+  ataqueEnemigo: 1
   anim: {fileID: 305954325663854887}
 --- !u!195 &305954326920771349
 NavMeshAgent:
