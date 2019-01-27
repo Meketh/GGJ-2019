@@ -12,13 +12,19 @@ public class Nucleo : MonoBehaviour
         enemigoScript = FindObjectOfType<Enemigo>().GetComponent<Enemigo>();
     }
 
-
-
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.tag == "Enemigo")
+        if(vidaNucleo <= 0)
         {
-            vidaNucleo -= 0.05f;
+            vidaNucleo = 0;
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemigo")
+    //    {
+    //        vidaNucleo -= 0.05f;
+    //    }
+    //}
 }

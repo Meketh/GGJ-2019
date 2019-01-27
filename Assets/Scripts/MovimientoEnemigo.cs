@@ -11,10 +11,10 @@ public class MovimientoEnemigo : MonoBehaviour
     public float rangoAtaque = 1.5f;
     public Nucleo nucleo;
     NavMeshAgent agent;
-    public float cooldown = 1.5f;
-    public float cooldownTimer;
+    public float cooldown = 0f;
+    public float coolDownTimer = 2.0f;
 
-    public int ataqueEnemigo = 5;
+    public int ataqueEnemigo = 1;
 
     public Animator anim;
 
@@ -41,9 +41,7 @@ public class MovimientoEnemigo : MonoBehaviour
 
         float distanciaAlnucleo = Vector3.Distance(transform.position, nucleo.transform.position);
 
-        Cooldown();
-
-
+       
         if (siguiendo == true)
         {
 
@@ -58,7 +56,9 @@ public class MovimientoEnemigo : MonoBehaviour
                 agent.isStopped = true;
                 siguiendo = false;
                 anim.SetBool("Rezo", true);
-                Cooldown();
+                
+                InvokeRepeating("Cooldown", 0, 2);
+              //  Cooldown(); // quita vida supuestamente
             }
         }
     }
@@ -66,17 +66,16 @@ public class MovimientoEnemigo : MonoBehaviour
 
     public void Cooldown()
     {
-        if (cooldownTimer > 0)
+        if (coolDownTimer > 0)
         {
             sourceAudio.PlayOneShot(soundScript.clipRezo, .5f);
             nucleoScript.vidaNucleo -= ataqueEnemigo;
-            cooldownTimer -= Time.deltaTime;
-
+            coolDownTimer -= Time.deltaTime;
+         
         }
-        if (cooldownTimer < 0)
+        if (coolDownTimer < 0)
         {
-            cooldownTimer = 10;
-            
+            coolDownTimer = 10;
         }
     }
 

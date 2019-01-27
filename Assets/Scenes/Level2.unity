@@ -11961,6 +11961,11 @@ PrefabInstance:
       propertyPath: nucleo
       value: 
       objectReference: {fileID: 834993218}
+    - target: {fileID: 305954326920771350, guid: 7300d689f26079248b38d7b6b3c9fd10,
+        type: 3}
+      propertyPath: ataqueEnemigo
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7300d689f26079248b38d7b6b3c9fd10, type: 3}
 --- !u!1001 &1815123335537136004
