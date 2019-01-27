@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
   float speed = 25f;
   float cooldown = 1.5f;
   float cooldownTimer = 0f;
-  Vector3 cameraOffset = 30 * new Vector3(0, 2, -1);
+  Vector3 cameraOffset = 30 * new Vector3(0f, 3f, -1.5f);
   float cameraSpeed = 20f;
 
   Animator anim;
