@@ -10,7 +10,7 @@ public class Enemigo : MonoBehaviour
     SoundManager soundScirpt;
     public GameObject particulasMuerte;
     bool paso = false;
-    int grito;
+    int grito =0;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Enemigo : MonoBehaviour
             if (!paso)
             {
                 Instantiate(particulasMuerte, transform.position, transform.rotation);
-                sourceAudio.PlayOneShot(soundScirpt.clipGrito[grito], 0.5f);
+                ElegirSonidoGrito();
                 paso = true;
             }
             Destroy(gameObject, 0.4f);

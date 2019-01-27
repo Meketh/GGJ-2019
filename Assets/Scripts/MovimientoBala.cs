@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovimientoBala : MonoBehaviour {
-  public int velocidad = 150;
-  public int danio = 50;
+  public int velocidad = 80;
+  public int danio = 100;
   public float ttl = 3;
   public int fragments = 0;
   float fragmentArc = 20f;
