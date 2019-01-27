@@ -36,16 +36,13 @@ public class Player : MonoBehaviour {
     transform.position += translation;
     if (cooldownTimer > 0) {
       cooldownTimer -= Time.deltaTime;
-      if (Input.GetMouseButtonUp(0)) {
-        anim.SetBool("Attack", false);
-      }
     } else {
       if (Input.GetKey(KeyCode.Space)) {
         cooldownTimer = 0.5f;
         anim.SetBool("Attack", true);
         anim.SetBool("Walk", false);
         anim.SetBool("Idle", false);
-        Instantiate(Bala, transform);
+        Instantiate(Bala, transform.position, transform.rotation);
         sourceAudio.PlayOneShot(soundScrpt.clipMisil, 0.5f);
       } else {
         anim.SetBool("Attack", false);
