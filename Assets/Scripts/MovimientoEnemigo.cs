@@ -57,27 +57,34 @@ public class MovimientoEnemigo : MonoBehaviour
                 siguiendo = false;
                 anim.SetBool("Rezo", true);
                 
-                InvokeRepeating("Cooldown", 0, 2);
-              //  Cooldown(); // quita vida supuestamente
+                InvokeRepeating("daniarNucleo", 0, 2);
+                            
+            //  Cooldown(); // quita vida 
             }
         }
     }
 
+    public void daniarNucleo()
+    {
+        nucleoScript.vidaNucleo -= ataqueEnemigo;
+        SoundManager.Instance.playAudio(soundScript.clipRezo, 0.1f);
+    }
 
-    public void Cooldown()
+    /*public void Cooldown()
     {
         if (coolDownTimer > 0)
         {
-            sourceAudio.PlayOneShot(soundScript.clipRezo, .5f);
+            //sourceAudio.PlayOneShot(soundScript.clipRezo, .5f);
             nucleoScript.vidaNucleo -= ataqueEnemigo;
             coolDownTimer -= Time.deltaTime;
-         
+            print("pase");
+            SoundManager.Instance.playAudio(soundScript.clipRezo, 0.01f);
         }
         if (coolDownTimer < 0)
         {
             coolDownTimer = 10;
         }
-    }
+    }*/
 
 
 }
