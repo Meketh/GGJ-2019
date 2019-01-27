@@ -43,7 +43,7 @@ public class Player : MonoBehaviour {
         anim.SetBool("Walk", false);
         anim.SetBool("Idle", false);
         Instantiate(Bala, transform.position, transform.rotation);
-        sourceAudio.PlayOneShot(soundScrpt.clipMisil, 0.5f);
+        sourceAudio.PlayOneShot(soundScrpt.clipMisil, 0.1f);
       } else {
         anim.SetBool("Attack", false);
         anim.SetBool("Walk", translation != Vector3.zero);
