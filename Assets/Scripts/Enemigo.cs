@@ -8,6 +8,7 @@ public class Enemigo : MonoBehaviour
     
     AudioSource sourceAudio;
     SoundManager soundScirpt;
+    LevelManager levelManager;
     public GameObject particulasMuerte;
     bool paso = false;
     int grito =0;
@@ -16,7 +17,7 @@ public class Enemigo : MonoBehaviour
     {
         sourceAudio = FindObjectOfType<AudioSource>().GetComponent<AudioSource>();
         soundScirpt = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
-        
+        levelManager = FindObjectOfType<LevelManager>().GetComponent<LevelManager>(); ;
     }
 
 
@@ -29,6 +30,8 @@ public class Enemigo : MonoBehaviour
                 Instantiate(particulasMuerte, transform.position, transform.rotation);
                 ElegirSonidoGrito();
                 paso = true;
+                print(levelManager.contadorEnemigosParaRisaPlayer);
+                levelManager.contadorEnemigosParaRisaPlayer += 1;
             }
             Destroy(gameObject, 0.4f);
         }

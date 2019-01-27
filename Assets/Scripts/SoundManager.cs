@@ -46,4 +46,11 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(clip, vol);
 
     }
+    public void playRisaPlayer()
+    {
+        float vol = 0.3f;
+        //int sound = Random.Range(0, soundScirpt.clipGrito.Length);
+        audioSource.PlayOneShot(clipRisa, vol);
+
+    }
 }

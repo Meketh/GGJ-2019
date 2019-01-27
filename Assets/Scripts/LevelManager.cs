@@ -9,11 +9,21 @@ public class LevelManager : MonoBehaviour {
   public float timeInvoke;
   public float repeatInvoke;
   public int contadorEnemigos = 0;
-  void Start() {
+    public int contadorEnemigosParaRisaPlayer = 0;
+    public int cantidadEnemigosParaReirte = 5;
+    void Start() {
     Invoke("InvocarMinion", spawnTime);
     InvokeRepeating("speedSpawning", 0f, 10f);
-  }
-  public void speedSpawning() {
+    }
+    private void Update()
+    {
+        if(contadorEnemigosParaRisaPlayer == cantidadEnemigosParaReirte)// RISA PLAYER
+        {
+            contadorEnemigosParaRisaPlayer = 0;
+            SoundManager.Instance.playRisaPlayer();
+        }
+    }
+    public void speedSpawning() {
     spawnTime = Mathf.Max(.5f, spawnTime - 1f);
   }
   public void InvocarMinion() {
@@ -25,7 +35,8 @@ public class LevelManager : MonoBehaviour {
   void Invocacion() {
     if (contadorEnemigos <= 10) {
       contadorEnemigos += 1;
-      //Instantiate(enemigos, transform.position, transform.rotation);
-    }
+            contadorEnemigosParaRisaPlayer += 1;
+            //Instantiate(enemigos, transform.position, transform.rotation);
+        }
   }
 }
